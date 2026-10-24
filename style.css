@@ -1073,3 +1073,19 @@ html.no-motion .atc-go, html.no-motion .atc-go::before, html.no-motion .atc-done
   box-shadow:0 10px 20px -8px color-mix(in srgb, var(--accent) 55%, transparent);}
 .build-add:active{transform:scale(.96);}
 html.no-motion .build-add{transition:none;}
+
+/* ===== To'plamlar rasmi: telefon + soat + AirPods ===== */
+.build-visual{height:auto;min-height:150px;background:#fff;}
+.bundle-combo{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;height:150px;padding:10px 8px;box-sizing:border-box;background:#fff;}
+.bc-item{position:relative;flex:1 1 0;min-width:0;height:100%;display:flex;align-items:center;justify-content:center;}
+.bc-item img{width:100%;height:100%;object-fit:contain;display:block;background:#fff;transition:transform .35s cubic-bezier(.3,1.4,.4,1);}
+.build:hover .bc-item img{transform:scale(1.08);}
+.bc-item .bc-fallback{display:none;width:100%;height:100%;color:#16130E;}
+.bc-item.img-fail .bc-fallback{display:block;}
+.bc-item .bc-icon{width:70%;height:70%;}
+.bc-plus{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;
+  background:var(--accent);color:#16130E;font-weight:700;font-size:16px;line-height:1;font-family:'Space Grotesk',sans-serif;
+  animation:bcPlusPulse 2.4s ease-in-out infinite;}
+@keyframes bcPlusPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.18);}}
+html.no-motion .bc-plus{animation:none;}
+@media (max-width:520px){.bc-plus{width:18px;height:18px;font-size:14px;}.bundle-combo{gap:4px;}}

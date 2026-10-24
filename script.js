@@ -802,11 +802,23 @@ function renderHomeCats(){
     </button>`).join('');
 }
 
+/* To'plam rasmi: telefon + soat + AirPods (har bir to'plam kartochkasida) */
+function bundleVisualHTML(b){
+  const phoneImg = photoOf(b.id, "Tayyor to'plam");
+  const items = [
+    {url: phoneImg,           sym:'photo-phone',   cls:'bc-phone'},
+    {url: photoOf('p24'),     sym:'i-watch',       cls:'bc-icon'},
+    {url: photoOf('p14'),     sym:'i-headset',     cls:'bc-icon'}
+  ];
+  const tile = it => `<div class="bc-item${it.url ? '' : ' img-fail'}">${it.url ? `<img src="${it.url}" alt="" loading="lazy" onerror="this.closest('.bc-item').classList.add('img-fail');this.remove();">` : ''}<svg class="bc-fallback ${it.cls}"><use href="#${it.sym}"/></svg></div>`;
+  return `<div class="bundle-combo">${tile(items[0])}<span class="bc-plus">+</span>${tile(items[1])}<span class="bc-plus">+</span>${tile(items[2])}</div>`;
+}
+
 function renderBuilds(){
   document.getElementById('buildList').innerHTML = BUILDS.map((b,i) => `
     <div class="build reveal ${b.featured?'featured':''}" data-id="${b.id}" style="animation-delay:${i*0.06}s;">
       <button class="heart-btn ${isFavorite(b.id) ? 'active' : ''}" onclick="toggleFavorite('${b.id}', this)" title="${isFavorite(b.id) ? t('fav_remove') : t('fav_add')}"><svg class="ic"><use href="#i-heart"/></svg></button>
-      <div class="build-visual">${visualHTML(b.id, "Tayyor to'plam", b.img || 'photo-phone')}</div>
+      <div class="build-visual">${bundleVisualHTML(b)}</div>
       <div class="build-tag">${b.tag}</div>
       <h3>${b.name}</h3>
       <ul class="spec-list">${b.specs.map(([k,v])=>`<li>${k} <b>${v}</b></li>`).join('')}</ul>
