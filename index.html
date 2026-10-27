@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PHONE EX — Smartfonlar va aksessuarlar</title>
+<title>PHONE EX — Smartfonlar, aksessuarlar va qulay xarid</title>
 <meta name="description" content="PHONE EX — Toshkentdagi original smartfonlar va aksessuarlar do'koni. Kafolat, tez yetkazib berish, qulay to'lov.">
 <meta name="theme-color" content="#E8543C">
 <meta property="og:title" content="PHONE EX — Smartfonlar va aksessuarlar">
@@ -11,7 +11,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23E8543C'/%3E%3Cstop offset='1' stop-color='%230F9D8C'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-weight='800' font-size='38' text-anchor='middle' fill='white'%3EP%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261024b">
+<link rel="stylesheet" href="style.css?v=20261027premium">
 <script>
 (function(){try{var p=JSON.parse(localStorage.getItem('baytex_prefs')||'{}');
 if(p.theme&&p.theme!=='system')document.documentElement.setAttribute('data-theme',p.theme);
@@ -447,6 +447,16 @@ if(p.lang)document.documentElement.lang=p.lang;}catch(e){}})();
   <section class="page" data-page="katalog" id="page-katalog">
     <div class="wrap">
       <div class="section-head reveal"><h1 data-i18n="cat_h1">Katalog</h1><p data-i18n="cat_p">Kerakli telefon yoki aksessuarni tanlab, savatga qo'shing.</p></div>
+      <div class="compare-panel reveal" id="comparePanel">
+        <div class="compare-intro"><span class="compare-kicker">SMART TANLOV</span><h2>Ikki qurilmani solishtiring</h2><p>Texnik xususiyatlar va narxlarni yonma-yon ko'rib, o'zingizga mosini tanlang.</p></div>
+        <div class="compare-controls">
+          <label>Birinchi qurilma<select id="compareA" aria-label="Birinchi qurilma"></select></label>
+          <span class="compare-vs">VS</span>
+          <label>Ikkinchi qurilma<select id="compareB" aria-label="Ikkinchi qurilma"></select></label>
+          <button class="btn btn-primary" onclick="compareProducts()">Solishtirish <span aria-hidden="true">↗</span></button>
+        </div>
+        <div id="compareResult" class="compare-result" aria-live="polite"><span class="compare-empty-icon">⇄</span><span>Ikki modelni tanlang va taqqoslashni boshlang.</span></div>
+      </div>
       <div class="filters" id="filters"></div>
       <div class="result-count" id="resultCount"></div>
       <div class="prod-grid" id="prodList"></div>
@@ -456,7 +466,7 @@ if(p.lang)document.documentElement.lang=p.lang;}catch(e){}})();
   <!-- ============ BUILDS ============ -->
   <section class="page" data-page="builds" id="page-builds">
     <div class="wrap">
-      <div class="section-head reveal"><h1 data-i18n="bld_h1">Tayyor konfiguratsiyalar</h1><p data-i18n="bld_p">Vazifangizga qarab tanlangan, sinovdan o'tgan yig'ilmalar.</p></div>
+      <div class="section-head reveal"><h1 data-i18n="bld_h1">Smart to‘plamlar</h1><p data-i18n="bld_p">Telefoningizga mos aksessuarlar, zamonaviy animatsiyalar va tayyor xarid to‘plamlari.</p></div>
       <div class="builds" id="buildList"></div>
     </div>
   </section>
@@ -787,9 +797,10 @@ if(p.lang)document.documentElement.lang=p.lang;}catch(e){}})();
 <div class="ai-panel" id="aiPanel">
   <div class="ai-head"><b><span class="bx"><i>PHONE</i><b class="bx-gap"></b>EX</span> <span data-i18n="ai_sub">AI</span></b><button onclick="toggleAI(false)">✕</button></div>
   <div class="ai-body" id="aiBody">
-    <div class="ai-msg bot">Salom! Men PHONE EX'ning AI yordamchisiman 🙂 Telefon tanlash, narx, xususiyat, solishtirish, yetkazib berish, kafolat va to'lov haqida so'rashingiz mumkin. Quyidagilardan boshlang yoki o'zingiz yozing.</div>
+    <div class="ai-msg bot">Salom! Men PHONE EX Smart maslahatchisiman ✨ Budjetingiz va ehtiyojingizga mos telefon topishga, modellarni solishtirishga hamda mahsulotlar haqida ma'lumot berishga yordam beraman. Nimadan boshlaymiz?</div>
     <div class="ai-msg bot" style="padding:0;background:none;border:none;"><div class="ai-chips">
-      <button class="ai-chip" onclick="askAI('Eng arzon telefon')">Eng arzon telefon</button>
+      <button class="ai-chip" onclick="askAI('5 milliongacha telefon tavsiya qil')">5 mln gacha</button>
+      <button class="ai-chip" onclick="askAI('Kundalik foydalanish uchun yaxshi telefon')">Kundalik foydalanish</button>
       <button class="ai-chip" onclick="askAI('Kamerasi kuchli telefon')">Yaxshi kamera</button>
       <button class="ai-chip" onclick="askAI('Batareyasi uzoq ishlaydigan telefon')">Uzoq batareya</button>
       <button class="ai-chip" onclick="askAI('iPhone 15 Pro va Galaxy S24 Ultra farqi')">Solishtirish</button>
@@ -805,7 +816,7 @@ if(p.lang)document.documentElement.lang=p.lang;}catch(e){}})();
   <div class="ai-note" id="aiNote" style="display:none;"></div>
 </div>
 
-<script src="script.js?v=20261024b"></script>
+<script src="script.js?v=20261027premium"></script>
 
 </body>
 </html>

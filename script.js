@@ -45,15 +45,15 @@ const PRODUCT_IMAGES = {
    Barcha rasmlar — Unsplash'dan bepul litsenziyali (Unsplash License) suratlar. */
 const IMG = (id, w) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w||800}&q=80`;
 const CAT_IMAGES = {
-  'Smartfonlar':        IMG('1592750475338-74b7b21085ab'),
-  'Planshetlar':        IMG('1544244015-0df4b3ffc6b0'),
-  'Simsiz quloqchin':   IMG('1590658268037-6bf12165a8df'),
-  'Aksessuarlar':       IMG('1601784551446-20c9e07cdbdb'),
-  'Quvvat banki':       IMG('1609692814858-f7cd2f0afa4f'),
-  'Zaryadlovchi':       IMG('1583863788434-e58a36330cf0'),
-  'Smart soat':         IMG('1523275335684-37898b6baf30'),
-  'Xotira karta':       IMG('1587033411391-5d9e51cce126'),
-  'Tayyor to\'plam':    IMG('1592750475338-74b7b21085ab')
+  'Smartfonlar':        'images/iphone-15-pro.webp',
+  'Planshetlar':        'images/ipad-air-11.webp',
+  'Simsiz quloqchin':   'images/airpods-pro-2.webp',
+  'Aksessuarlar':       'images/silikon-gilof.webp',
+  'Quvvat banki':       'images/anker-20000.webp',
+  'Zaryadlovchi':       'images/zaryadlovchi-20w.webp',
+  'Smart soat':         'images/apple-watch-se.webp',
+  'Xotira karta':       'images/himoya-oynasi-9d.webp',
+  "Tayyor to'plam":     'images/iphone-15-pro.webp'
 };
 function photoOf(id, cat){ return (PRODUCT_IMAGES[id] || CAT_IMAGES[cat] || '').trim(); }
 
@@ -130,20 +130,20 @@ let txs = loadJSON('baytex_txs', []);
 /* ---------------- i18n + sozlamalar ---------------- */
 const I18N = {
   uz:{
-    search_ph:"Mahsulot qidirish...", g_main:"ASOSIY", g_info:"MA'LUMOT", g_account:"HISOB",
-    nav_home:"Bosh sahifa", nav_catalog:"Katalog", nav_builds:"To'plamlar", nav_cart:"Savat",
-    nav_fav:"Sevimlilar",
-    nav_contact:"Aloqa", nav_profile:"Profil", nav_settings:"Sozlamalar",
+    search_ph:"Mahsulot qidirish...", g_main:"DO‘KON", g_info:"YORDAM", g_account:"SHAXSIY KABINET",
+    nav_home:"Asosiy sahifa", nav_catalog:"Qurilmalar", nav_builds:"Smart to‘plamlar", nav_cart:"Xarid savati",
+    nav_fav:"Saralanganlar",
+    nav_contact:"Biz bilan aloqa", nav_profile:"Mening profilim", nav_settings:"Moslamalar",
     hero_kicker:"Smartfon va aksessuarlar ulgurji va chakana savdosi",
     hero_h1:"Har bir tanlov ishonchli telefondan boshlanadi",
     hero_p:"iPhone'dan tortib aksessuarlargacha — biz Toshkentda original smartfonlarni tanlaymiz, tekshiramiz va tezkor yetkazib beramiz.",
     cta_catalog:"Katalogni ko'rish", cta_builds:"Tayyor to'plamlar",
     st_clients:"mamnun mijoz", st_orders:"yetkazilgan buyurtma", st_warranty:"telefonlarga kafolat", st_support:"ichida yetkazib berish",
-    sec_cats:"Bo'limlar", sec_why:"Nega PHONE EX",
+    sec_cats:"Bo'limlar", sec_why:"Nega aynan PHONE EX?",
     why1t:"Original mahsulotlar", why1p:"Rasmiy distribyutorlar orqali, kafolat kartasi bilan.",
-    why2t:"Tez yetkazib berish", why2p:"Toshkentda 24 soat, viloyatlarga 2–3 kun.",
-    why3t:"Sozlab beramiz", why3p:"SIM, dastur va profilingizni ishga tushirib topshiramiz.",
-    why4t:"Kafolat xizmati", why4p:"1 yil kafolat, o'z servis markazimiz.",
+    why2t:"Tez va qulay yetkazish", why2p:"Buyurtmangizni qulay vaqtda qabul qiling — ortiqcha ovora bo‘lmaysiz.",
+    why3t:"Ishga tayyor holatda", why3p:"Yangi qurilmangizni sozlashda yordam beramiz, foydalanishni oson boshlaysiz.",
+    why4t:"Xariddan keyin ham yoningizdamiz", why4p:"Savollaringiz bo‘lsa, maslahat va qo‘llab-quvvatlashga tayyormiz.",
     cat_h1:"Katalog", cat_p:"Kerakli telefon yoki aksessuarni tanlab, savatga qo'shing.",
     bld_h1:"Tayyor to'plamlar", bld_p:"Ehtiyojingizga qarab tanlangan, telefon + aksessuar to'plamlari.",
     cart_h1:"Savat", con_h1:"Aloqa",
@@ -171,6 +171,7 @@ const I18N = {
     checkout:"Buyurtmani rasmiylashtirish", added_toast:'"{name}" savatga qo\'shildi',
     order_toast:"Buyurtma qabul qilindi — {id} · {sum}", login_first:"Buyurtma berish uchun avval profilga kiring.",
     prof_h1:"Profil", prof_logout:"Chiqish", my_orders:"Buyurtmalarim", no_orders:"Hali buyurtma yo'q.",
+    prof_photo:"Profil rasmini o'zgartirish", prof_photo_rm:"Rasmni olib tashlash", prof_photo_ok:"Profil rasmi saqlandi", prof_photo_rm_ok:"Rasm olib tashlandi",
     st_processing:"Qabul qilindi", st_shipping:"Yetkazilmoqda", st_delivered:"Yetkazildi", st_cancelled:"Bekor qilindi",
     tier_vip:"VIP mijoz", tier_basic:"Oddiy mijoz",
     login_h1:"Profilga kirish", login_p:"Buyurtma berish va tarixni ko'rish uchun ma'lumotlaringizni kiriting.",
@@ -191,7 +192,7 @@ const I18N = {
     sent:"Xabaringiz yuborildi — tez orada bog'lanamiz!",
     guest:"Mehmon", guest_sub:"Kirish / ro'yxatdan o'tish", logout_done:"Hisobdan chiqdingiz.",
     reset_done:"Sozlamalar tiklandi.", cleared:"Savat va buyurtmalar tarixi tozalandi.",
-    nav_balance:"Balans", bal_h1:"Balans", bal_p:"Hisobingizni to'ldiring va buyurtmalarni bir bosishda to'lang.",
+    nav_balance:"Elektron hamyon", bal_h1:"Elektron hamyon", bal_p:"Hisobingizni to'ldiring va buyurtmalarni bir bosishda to'lang.",
     bal_current:"Joriy balans", bal_lastcard:"Karta", bal_topup:"Balansni to'ldirish", bal_sum:"Summa (so'm)",
     bal_btn:"To'ldirish", bal_history:"Amaliyotlar tarixi", bal_empty:"Hali amaliyot yo'q.",
     bal_demo_d:"Haqiqiy pul yechilmaydi — kiritilgan summa shunchaki balansga qo'shiladi va brauzeringizda saqlanadi.",
@@ -264,6 +265,7 @@ const I18N = {
     checkout:"Оформить заказ", added_toast:'"{name}" добавлен в корзину',
     order_toast:"Заказ принят — {id} · {sum}", login_first:"Сначала войдите в профиль, чтобы оформить заказ.",
     prof_h1:"Профиль", prof_logout:"Выйти", my_orders:"Мои заказы", no_orders:"Заказов пока нет.",
+    prof_photo:"Изменить фото профиля", prof_photo_rm:"Удалить фото", prof_photo_ok:"Фото профиля сохранено", prof_photo_rm_ok:"Фото удалено",
     st_processing:"Принят", st_shipping:"В пути", st_delivered:"Доставлен", st_cancelled:"Отменён",
     tier_vip:"VIP клиент", tier_basic:"Обычный клиент",
     login_h1:"Вход в профиль", login_p:"Введите данные, чтобы оформлять заказы и видеть историю.",
@@ -357,6 +359,7 @@ const I18N = {
     checkout:"Place order", added_toast:'"{name}" added to cart',
     order_toast:"Order placed — {id} · {sum}", login_first:"Sign in to your profile first to place an order.",
     prof_h1:"Profile", prof_logout:"Sign out", my_orders:"My orders", no_orders:"No orders yet.",
+    prof_photo:"Change profile photo", prof_photo_rm:"Remove photo", prof_photo_ok:"Profile photo saved", prof_photo_rm_ok:"Photo removed",
     st_processing:"Processing", st_shipping:"Shipping", st_delivered:"Delivered", st_cancelled:"Cancelled",
     tier_vip:"VIP customer", tier_basic:"Regular customer",
     login_h1:"Sign in", login_p:"Enter your details to place orders and see your history.",
@@ -503,13 +506,22 @@ function clearData(){
 }
 
 /* ---------------- sidebar ---------------- */
+function avatarHTML(cls){
+  if(auth && auth.avatar){
+    return `<div class="${cls} has-photo"><img src="${auth.avatar}" alt="" onerror="this.parentElement.classList.remove('has-photo');this.remove();"></div>`;
+  }
+  if(auth){
+    const initial = (auth.name || '?').trim().charAt(0).toUpperCase();
+    return `<div class="${cls}">${initial}</div>`;
+  }
+  return `<div class="${cls}"><svg class="ic" style="width:17px;height:17px;"><use href="#i-user"/></svg></div>`;
+}
 function renderSidebarUser(){
   const el = document.getElementById('sbUser');
   if(!el) return;
   if(auth){
-    const initial = (auth.name || '?').trim().charAt(0).toUpperCase();
     el.innerHTML = `
-      <div class="sb-ava">${initial}</div>
+      ${avatarHTML('sb-ava')}
       <div class="sb-user-info" onclick="go('profil')"><b>${auth.name}${auth.surname ? ' ' + auth.surname : ''}</b><span>${auth.phone}</span></div>
       <button class="sb-icon-btn" onclick="logout()" title="${t('prof_logout')}"><svg class="ic"><use href="#i-logout"/></svg></button>`;
   }else{
@@ -578,6 +590,9 @@ function toast(msg, type){
 
 /* ---------------- router ---------------- */
 function go(page){
+  if(page === 'savat'){ profileTab='cart'; page='profil'; }
+  else if(page === 'sevimlilar'){ profileTab='favorites'; page='profil'; }
+  else if(page === 'profil'){ profileTab='account'; }
   document.querySelectorAll('.page').forEach(p => {
     const match = p.dataset.page === page;
     p.classList.toggle('active', match);
@@ -652,7 +667,7 @@ function removeFromCart(id){
   cart = cart.filter(i => i.id !== id);
   saveJSON('baytex_cart', cart);
   updateCartBadge();
-  renderCart();
+  if(document.getElementById('profileCartContent')) renderCart('profileCartContent'); else renderCart();
 }
 
 /* ---------------- sevimlilar (favorites / like) ---------------- */
@@ -679,7 +694,8 @@ function toggleFavorite(id, btn){
     btn.classList.remove('pop'); void btn.offsetWidth; btn.classList.add('pop');
   }
   toast(nowFav ? t('fav_added') : t('fav_removed'));
-  if(document.getElementById('page-sevimlilar').classList.contains('active')) renderFavorites();
+  if(document.getElementById('profileFavContent')) renderFavorites('profileFavContent');
+  else if(document.getElementById('page-sevimlilar')?.classList.contains('active')) renderFavorites();
 }
 function moveFavToCart(id, name, cat, price){
   addToCart(id, name, cat, price);
@@ -687,8 +703,8 @@ function moveFavToCart(id, name, cat, price){
   if(i >= 0){ favorites.splice(i, 1); saveJSON('baytex_favorites', favorites); updateFavBadge(); }
   go('savat');
 }
-function renderFavorites(){
-  const el = document.getElementById('favContent');
+function renderFavorites(targetId='favContent'){
+  const el = document.getElementById(targetId);
   if(!el) return;
   const items = favorites.map(catalogItemInfo).filter(Boolean);
   if(items.length === 0){
@@ -710,8 +726,8 @@ function renderFavorites(){
   playReveal(el);
 }
 
-function renderCart(){
-  const el = document.getElementById('cartContent');
+function renderCart(targetId='cartContent'){
+  const el = document.getElementById(targetId);
   if(cart.length === 0){
     el.innerHTML = `<div class="empty-state"><div class="glyph">🛒</div><p>${t('cart_empty')}</p>
       <button class="btn btn-primary" onclick="go('katalog')" style="margin-top:12px;">${t('go_catalog')}</button></div>`;
@@ -724,7 +740,7 @@ function renderCart(){
       <tbody>
         ${cart.map(i => `
           <tr>
-            <td><div class="cart-item-name">${i.name}</div><div class="cart-item-cat">${i.cat}</div></td>
+            <td><div class="cart-product-cell"><div class="cart-thumb">${visualHTML(i.id, i.cat, CAT_PHOTO[i.cat] || 'photo-phone')}</div><div><div class="cart-item-name">${i.name}</div><div class="cart-item-cat">${i.cat}</div></div></div></td>
             <td class="mono">${fmt(i.price)}</td>
             <td><div class="stepper">
               <button onclick="changeQty('${i.id}',-1)">−</button>
@@ -776,7 +792,30 @@ function renderFilters(){
     `<button class="chip ${c===activeFilter?'active':''}" onclick="setFilter('${c}')">${c==='Hammasi'?t('filter_all'):c}</button>`).join('');
 }
 function setFilter(c){ activeFilter = c; renderFilters(); renderProducts(); }
+function initCompare(){
+  const a = document.getElementById('compareA'), b = document.getElementById('compareB');
+  if(!a || !b) return;
+  const previousA = a.value, previousB = b.value;
+  const opts = PRODUCTS.filter(p=>p.cat==='Smartfonlar').map(p=>`<option value="${p.id}">${p.name}</option>`).join('');
+  a.innerHTML = opts; b.innerHTML = opts;
+  a.value = PRODUCTS.some(p=>p.id===previousA) ? previousA : 'p2';
+  b.value = PRODUCTS.some(p=>p.id===previousB) ? previousB : 'p5';
+  if(a.value===b.value) b.value = PRODUCTS.find(p=>p.id!==a.value && p.cat==='Smartfonlar')?.id || 'p5';
+}
+function compareProducts(){
+  const a = PRODUCTS.find(p=>p.id===document.getElementById('compareA')?.value);
+  const b = PRODUCTS.find(p=>p.id===document.getElementById('compareB')?.value);
+  const out = document.getElementById('compareResult');
+  if(!a || !b || !out) return;
+  if(a.id===b.id){ out.innerHTML='<span class="compare-empty-icon">!</span><span>Iltimos, ikki xil modelni tanlang.</span>'; return; }
+  const da = productDetail(a.id), db = productDetail(b.id);
+  const rows = [['Narx',fmt(a.price),fmt(b.price)], ...Array.from(new Set([...(da?.specs||[]).map(x=>x[0]),...(db?.specs||[]).map(x=>x[0])])).map(k=>[k,(da?.specs||[]).find(x=>x[0]===k)?.[1]||'—',(db?.specs||[]).find(x=>x[0]===k)?.[1]||'—'])];
+  const winner = a.price===b.price ? 'Narxlari teng' : (a.price<b.price ? `${a.name} arzonroq` : `${b.name} arzonroq`);
+  out.innerHTML = `<div class="compare-table-wrap"><table class="compare-table"><thead><tr><th>Xususiyat</th><th>${a.name}</th><th>${b.name}</th></tr></thead><tbody>${rows.map((r,i)=>`<tr><th>${r[0]}</th><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</tbody></table></div><div class="compare-verdict"><span>✦</span><b>${winner}</b><button class="btn btn-ghost" onclick="openProductModal('${a.id}')">Batafsil</button><button class="btn btn-primary" onclick="openProductModal('${b.id}')">Batafsil</button></div>`;
+}
+
 function renderProducts(){
+  initCompare();
   let list = activeFilter === 'Hammasi' ? PRODUCTS : PRODUCTS.filter(p=>p.cat===activeFilter);
   if(searchTerm) list = list.filter(p => p.name.toLowerCase().includes(searchTerm) || p.cat.toLowerCase().includes(searchTerm));
   document.getElementById('resultCount').textContent = t('found', {n: list.length});
@@ -796,22 +835,50 @@ function renderProducts(){
 
 function renderHomeCats(){
   const cats = [...new Set(PRODUCTS.map(p=>p.cat))];
-  document.getElementById('homeCats').innerHTML = cats.map((c,i) => `
-    <button class="home-cat reveal" style="animation-delay:${i*0.04}s;" onclick="setFilter('${c}');go('katalog');">
-      <svg class="ic"><use href="#${CAT_ICON[c] || 'i-cpu'}"/></svg><span>${c}</span>
-    </button>`).join('');
+  document.getElementById('homeCats').innerHTML = cats.map((c,i) => {
+    const img = CAT_IMAGES[c] || '';
+    const icon = CAT_ICON[c] || 'i-phone';
+    const imgHtml = img
+      ? `<div class="hc-img"><img src="${img}" alt="" loading="lazy" onerror="this.parentElement.classList.add('img-fail');this.remove();"><svg class="hc-fallback"><use href="#${icon}"/></svg></div>`
+      : `<div class="hc-img img-fail"><svg class="hc-fallback"><use href="#${icon}"/></svg></div>`;
+    return `<button class="home-cat reveal" style="animation-delay:${i*0.04}s;" onclick="setFilter('${c}');go('katalog');">
+      ${imgHtml}<span>${c}</span>
+    </button>`;
+  }).join('');
 }
 
-/* To'plam rasmi: telefon + soat + AirPods (har bir to'plam kartochkasida) */
+/* To'plam rasmi: telefon + soat + quloqchin (har bir to'plamda har xil)
+   watch — soat rasmi (o'z papkangizga shu nomli fayl qo'ysangiz, o'sha chiqadi;
+   topilmasa umumiy soat rasmi, u ham bo'lmasa ikonka ko'rinadi).
+   buds  — PRODUCTS ichidagi quloqchin id'si. */
+const BUNDLE_EXTRAS = {
+  b1:{watch:'images/xiaomi-watch.webp',        buds:'p16'}, // Redmi Note 13 Pro  + Redmi Buds 5
+  b2:{watch:'images/galaxy-watch.webp',        buds:'p15'}, // Galaxy A55         + Galaxy Buds FE
+  b3:{watch:'images/apple-watch-se.webp',      buds:'p13'}, // iPhone 14          + AirPods 4
+  b4:{watch:'images/apple-watch-series.webp',  buds:'p14'}, // iPhone 15 Pro      + AirPods Pro 2
+  b5:{watch:'images/galaxy-watch-ultra.webp',  buds:'p15'}, // Galaxy S24 Ultra   + Galaxy Buds FE
+  b6:{watch:'images/apple-watch-se.webp',      buds:'p14'}  // iPhone 15 Pro      + AirPods Pro 2
+};
+function bcImgFail(img){
+  const box = img.closest('.bc-item');
+  const fb = img.dataset.fb;
+  if(fb && img.src.indexOf(fb) === -1){ img.dataset.fb = ''; img.src = fb; return; }
+  box.classList.add('img-fail'); img.remove();
+}
 function bundleVisualHTML(b){
-  const phoneImg = photoOf(b.id, "Tayyor to'plam");
+  const ex = BUNDLE_EXTRAS[b.id] || {watch:'images/apple-watch-se.webp', buds:'p14'};
   const items = [
-    {url: phoneImg,           sym:'photo-phone',   cls:'bc-phone'},
-    {url: photoOf('p24'),     sym:'i-watch',       cls:'bc-icon'},
-    {url: photoOf('p14'),     sym:'i-headset',     cls:'bc-icon'}
+    {url: photoOf(b.id, "Tayyor to'plam"), fb:'',                      sym:'photo-phone', cls:'bc-phone'},
+    {url: ex.watch,                        fb: CAT_IMAGES['Smart soat'], sym:'i-watch',     cls:'bc-icon'},
+    {url: photoOf(ex.buds),                fb:'',                      sym:'i-headset',   cls:'bc-icon'}
   ];
-  const tile = it => `<div class="bc-item${it.url ? '' : ' img-fail'}">${it.url ? `<img src="${it.url}" alt="" loading="lazy" onerror="this.closest('.bc-item').classList.add('img-fail');this.remove();">` : ''}<svg class="bc-fallback ${it.cls}"><use href="#${it.sym}"/></svg></div>`;
+  const tile = it => `<div class="bc-item${it.url ? '' : ' img-fail'}">${it.url ? `<img src="${it.url}" data-fb="${it.fb}" alt="" loading="lazy" onerror="bcImgFail(this)">` : ''}<svg class="bc-fallback ${it.cls}"><use href="#${it.sym}"/></svg></div>`;
   return `<div class="bundle-combo">${tile(items[0])}<span class="bc-plus">+</span>${tile(items[1])}<span class="bc-plus">+</span>${tile(items[2])}</div>`;
+}
+
+function getBuildAccessoryIds(id){
+  const map={b1:['p18','p22'],b2:['p19','p20'],b3:['p18','p22'],b4:['p23','p14'],b5:['p18','p20'],b6:['p14','p23']};
+  return map[id] || ['p18','p22'];
 }
 
 function renderBuilds(){
@@ -823,6 +890,10 @@ function renderBuilds(){
       <h3>${b.name}</h3>
       <ul class="spec-list">${b.specs.map(([k,v])=>`<li>${k} <b>${v}</b></li>`).join('')}</ul>
       <div class="build-price">${fmt(b.price)}</div>
+      <div class="build-accessories">
+        <div class="build-accessories-title"><span>✦</span> Mos aksessuarlar</div>
+        ${getBuildAccessoryIds(b.id).map(pid => { const p = PRODUCTS.find(x=>x.id===pid); return p ? `<button class="build-accessory" onclick="addProductToCart('${p.id}')"><span class="accessory-icon">${p.cat==='Smart soat'?'⌚':p.cat==='Quloqchin'?'♫':p.cat==='Quvvat banki'?'ϟ':'✧'}</span><span class="accessory-info"><b>${p.name}</b><small>${fmt(p.price)}</small></span><span class="accessory-plus">+</span></button>` : ''; }).join('')}
+      </div>
       <button class="btn btn-ghost build-add" onclick="addBuildToCart('${b.id}')">${t('add_build')}</button>
     </div>`).join('');
   playReveal(document.getElementById('buildList'));
@@ -830,6 +901,8 @@ function renderBuilds(){
 
 /* ---------------- profile / login ---------------- */
 let profileAuthMode = 'login';
+let profileTab = 'account';
+function setProfileTab(tab){ profileTab = tab; renderProfile(); }
 function setProfileAuthMode(m){
   profileAuthMode = m;
   renderProfile();
@@ -839,6 +912,19 @@ function renderProfile(){
   renderSidebarUser();
   if(!auth){
     const isLogin = profileAuthMode === 'login';
+    if(profileTab !== 'account'){
+      el.innerHTML = `<div class="section-head"><h1>${t('prof_h1')}</h1></div>
+        <div class="profile-tabs">
+          <button class="profile-tab ${profileTab==='account'?'active':''}" onclick="setProfileTab('account')">👤 Profil</button>
+          <button class="profile-tab ${profileTab==='cart'?'active':''}" onclick="setProfileTab('cart')">🛒 Xarid savati <span>${cartCount()}</span></button>
+          <button class="profile-tab ${profileTab==='favorites'?'active':''}" onclick="setProfileTab('favorites')">♡ Saralanganlar <span>${favorites.length}</span></button>
+        </div>
+        ${profileTab==='cart' ? `<div class="profile-panel"><div id="profileCartContent"></div></div>` : ''}
+        ${profileTab==='favorites' ? `<div class="profile-panel"><div id="profileFavContent"></div></div>` : ''}`;
+      if(profileTab==='cart') renderCart('profileCartContent');
+      if(profileTab==='favorites') renderFavorites('profileFavContent');
+      return;
+    }
     el.innerHTML = `
       <div class="auth-shell">
         <div class="section-head"><h1>${isLogin ? t('login_h1') : t('w_create')}</h1><p>${isLogin ? t('login_p') : t('w_sub_reg')}</p></div>
@@ -858,12 +944,29 @@ function renderProfile(){
   const isVip = myOrders.length >= 3 || spent >= 5000000;
   el.innerHTML = `
     <div class="section-head"><h1>${t('prof_h1')}</h1></div>
-    <div class="profile-card">
+    <div class="profile-tabs">
+      <button class="profile-tab ${profileTab==='account'?'active':''}" onclick="setProfileTab('account')">👤 Profil</button>
+      <button class="profile-tab ${profileTab==='cart'?'active':''}" onclick="setProfileTab('cart')">🛒 Xarid savati <span>${cartCount()}</span></button>
+      <button class="profile-tab ${profileTab==='favorites'?'active':''}" onclick="setProfileTab('favorites')">♡ Saralanganlar <span>${favorites.length}</span></button>
+    </div>
+    ${profileTab==='cart' ? `<div class="profile-panel"><div id="profileCartContent"></div></div>` : ''}
+    ${profileTab==='favorites' ? `<div class="profile-panel"><div id="profileFavContent"></div></div>` : ''}
+    ${profileTab==='account' ? `<div class="profile-card">
       <div class="profile-head">
-        <div class="profile-avatar">${(auth.name || '?').trim().charAt(0).toUpperCase()}</div>
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar${auth.avatar ? ' has-photo' : ''}" id="profAva">
+            ${auth.avatar ? `<img src="${auth.avatar}" alt="">` : (auth.name || '?').trim().charAt(0).toUpperCase()}
+          </div>
+          <label class="avatar-upload-btn" title="${t('prof_photo')}">
+            <input type="file" accept="image/*" onchange="onAvatarPick(this)" hidden>
+            <svg class="ic"><use href="#i-plus"/></svg>
+          </label>
+        </div>
         <div>
           <b>${auth.name} ${auth.surname || ''} <span class="tier-badge ${isVip ? 'tier-vip' : 'tier-basic'}">${isVip ? t('tier_vip') : t('tier_basic')}</span></b>
           <span>${auth.phone}</span>
+          <button class="avatar-change-link" type="button" onclick="document.querySelector('.avatar-upload-btn input').click()">${t('prof_photo')}</button>
+          ${auth.avatar ? `<button class="avatar-remove-link" type="button" onclick="removeAvatar()">${t('prof_photo_rm')}</button>` : ''}
         </div>
       </div>
       <div class="profile-row"><span>${t('f_name')}</span><span>${auth.name}</span></div>
@@ -880,7 +983,10 @@ function renderProfile(){
           <div style="margin-top:8px;font-family:'Space Grotesk',sans-serif;">${fmt(o.total)}</div>
           <div style="color:var(--fg-muted);font-size:12.5px;margin-top:4px;">${o.date}</div>
         </div>`).join('')}
+    ` : ''}
   `;
+  if(profileTab==='cart') renderCart('profileCartContent');
+  if(profileTab==='favorites') renderFavorites('profileFavContent');
 }
 /* ---------------- shared auth helpers (login = phone only, register = full form) ---------------- */
 function findUserByPhone(phone){
@@ -903,6 +1009,47 @@ function doRegister(name, surname, phone){
   saveUser(user);
   auth = user;
   saveJSON('baytex_auth', auth);
+}
+function persistAuth(){
+  if(!auth) return;
+  saveJSON('baytex_auth', auth);
+  saveUser(auth);
+  renderSidebarUser();
+}
+function onAvatarPick(input){
+  const file = input.files && input.files[0];
+  if(!file || !auth) return;
+  if(!file.type.startsWith('image/')){ toast('Faqat rasm fayli yuklang', 'error'); return; }
+  if(file.size > 2.5 * 1024 * 1024){ toast('Rasm 2.5 MB dan oshmasin', 'error'); return; }
+  const reader = new FileReader();
+  reader.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      const max = 320;
+      let w = img.width, h = img.height;
+      if(w > h){ if(w > max){ h = Math.round(h * max / w); w = max; } }
+      else { if(h > max){ w = Math.round(w * max / h); h = max; } }
+      const c = document.createElement('canvas');
+      c.width = w; c.height = h;
+      c.getContext('2d').drawImage(img, 0, 0, w, h);
+      try{
+        auth.avatar = c.toDataURL('image/jpeg', 0.82);
+        persistAuth();
+        renderProfile();
+        toast(t('prof_photo_ok'));
+      }catch(e){ toast('Rasm saqlanmadi', 'error'); }
+    };
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+  input.value = '';
+}
+function removeAvatar(){
+  if(!auth) return;
+  delete auth.avatar;
+  persistAuth();
+  renderProfile();
+  toast(t('prof_photo_rm_ok'));
 }
 function authSubmit(prefix, mode){
   const phone = document.getElementById(prefix + 'Phone').value.trim();
@@ -1199,8 +1346,9 @@ function generateReplyBase(raw){
   return {
     text:"To'liq tushunmadim 🙂 Menga budjetingizni (masalan \"10 million so'm\") va nima kerakligini (smartfon, planshet, aksessuar va h.k.) ayting — mos variantlarni topib beraman.",
     chips:[
-      {label:'Eng arzon telefon', action:"askAI('Eng arzon telefon')"},
+      {label:'5 mln gacha', action:"askAI('5 milliongacha telefon tavsiya qil')"},
       {label:'Yaxshi kamera', action:"askAI('Kamerasi kuchli telefon')"},
+      {label:'Modellarni solishtirish', action:"go('katalog');toggleAI(false);document.getElementById('comparePanel')?.scrollIntoView({behavior:'smooth',block:'start'});"},
       {label:'Yetkazib berish', action:"askAI('Yetkazib berish')"},
       {label:'Aloqa', action:"go('aloqa');toggleAI(false);"}
     ]
