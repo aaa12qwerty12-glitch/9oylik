@@ -1325,3 +1325,13 @@ body{background:var(--bg)}.topbar{box-shadow:0 8px 28px rgba(22,31,52,.045)}.tb-
 .profile-panel{padding:clamp(12px,2vw,24px);border:1px solid var(--line);border-radius:20px;background:var(--panel);animation:profilePanelIn .25s ease both}
 @keyframes profilePanelIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:600px){.profile-tabs{display:grid;grid-template-columns:1fr;gap:6px}.profile-tab{justify-content:space-between;width:100%}.profile-panel{padding:12px}}
+
+/* Login (welcome) sahifasida tepadagi menyu ko'rinmasin; login'dan keyin chiqadi */
+body.welcome-active .sidebar,
+body.welcome-active .topbar,
+body.welcome-active .mobile-head,
+body.welcome-active .bottom-tabbar,
+body.welcome-active .sb-overlay,
+body.welcome-active .ai-fab,
+body.welcome-active .ai-panel{display:none !important;}
+body.welcome-active{padding-top:0 !important;padding-left:0 !important;}
