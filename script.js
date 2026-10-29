@@ -641,7 +641,7 @@ function addToCart(id, name, cat, price){
   saveJSON('baytex_cart', cart);
   updateCartBadge();
   const badge = document.getElementById('cartCount');
-  badge.classList.remove('pop'); void badge.offsetWidth; badge.classList.add('pop');
+  if(badge){ badge.classList.remove('pop'); void badge.offsetWidth; badge.classList.add('pop'); }
   toast(t('added_toast', {name}));
 }
 
